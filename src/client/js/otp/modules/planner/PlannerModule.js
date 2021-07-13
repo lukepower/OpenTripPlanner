@@ -22,9 +22,9 @@ otp.modules.planner.defaultQueryParams = {
     arriveBy                        : false,
     wheelchair                      : false,
     mode                            : "TRANSIT,WALK",
-    maxWalkDistance                 : 4828.032, // 3 mi.
-    metricDefaultMaxWalkDistance    : 5000, // meters
-    imperialDefaultMaxWalkDistance  : 4828.032, // 3 mile
+    maxWalkDistance                 : 20828.032, // 3 mi.
+    metricDefaultMaxWalkDistance    : 20000, // meters
+    imperialDefaultMaxWalkDistance  : 20828.032, // 3 mile
     preferredRoutes                 : null,
     otherThanPreferredRoutesPenalty : 300,
     bannedTrips                     : null,
@@ -168,7 +168,10 @@ otp.modules.planner.PlannerModule =
         this.webapp.indexApi.loadRoutes(this, function() {
             this.routesLoaded();
         });
-
+        window.tmp = this;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
         this.activated = true;
 
         // set up primary widgets (TODO: move to bike planner module)

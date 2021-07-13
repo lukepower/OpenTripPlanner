@@ -52,7 +52,7 @@ otp.locale.English = {
      * If not specified, the default styling is used.
      */
     infoWidgets : [
-            {
+        /**     {
                 title: 'About',
                 content: '<p>About this site</p>',
                 //cssClass: 'otp-contactWidget',
@@ -60,7 +60,7 @@ otp.locale.English = {
             {
                 title: 'Contact',
                 content: '<p>Comments? Contact us at...</p>'
-            },
+            },**/
     ],
 
 

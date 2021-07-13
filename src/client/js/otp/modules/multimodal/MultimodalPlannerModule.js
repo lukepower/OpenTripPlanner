@@ -72,13 +72,13 @@ otp.modules.multimodal.MultimodalPlannerModule =
 
         // hide wheelchair selector only if config explicitly set to false; show by default if setting is not present
         if(otp.config.showWheelchairOption === undefined || otp.config.showWheelchairOption === true) {
-          modeSelector.addModeControl(new otp.widgets.tripoptions.WheelChairSelector(this.optionsWidget));
+          //modeSelector.addModeControl(new otp.widgets.tripoptions.WheelChairSelector(this.optionsWidget));
         }
-        modeSelector.addModeControl(new otp.widgets.tripoptions.DebugItineraryFiltersSelector(this.optionsWidget));
+        //modeSelector.addModeControl(new otp.widgets.tripoptions.DebugItineraryFiltersSelector(this.optionsWidget));
         modeSelector.refreshModeControls();
 
-        this.optionsWidget.addSeparator();
-        this.optionsWidget.addControl("additionalParameters", new otp.widgets.tripoptions.AdditionalTripParameters(this.optionsWidget))
+        //this.optionsWidget.addSeparator();
+        //this.optionsWidget.addControl("additionalParameters", new otp.widgets.tripoptions.AdditionalTripParameters(this.optionsWidget))
 
         this.optionsWidget.addSeparator();
         this.optionsWidget.addControl("submit", new otp.widgets.tripoptions.Submit(this.optionsWidget));

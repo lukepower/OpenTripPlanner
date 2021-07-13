@@ -5,7 +5,7 @@ otp.config = {
     //If enabled it shows inspector layers overlays which can be used for Graph
     //debugging
     //Can be also enabled in URL parameters as ?debug_layers=true
-    debug_layers: true,
+    debug_layers: false,
 
     //This is default locale when wanted locale isn't found
     //Locale language is set based on wanted language in url >
@@ -17,16 +17,9 @@ otp.config = {
     //value is name of settings file for localization in locale subfolder
     //File should be loaded in index.html
     locales : {
-        'ca_ES': otp.locale.Catalan,
-        'de': otp.locale.German,
         'en': otp.locale.English,
-        'es': otp.locale.Spanish,
-        'fr': otp.locale.French,
+        'de': otp.locale.German,
         'it': otp.locale.Italian,
-        'no': otp.locale.Norwegian,
-        'pl': otp.locale.Polish,
-        'pt': otp.locale.Portuguese,
-        'sl': otp.locale.Slovenian
     },
 
     languageChooser : function() {
@@ -48,7 +41,7 @@ otp.config = {
     /**
      * The OTP web service locations
      */
-    hostname : "",
+    hostname : "https://tripplanner.valgardena.it",
     //municoderHostname : "http://localhost:8080",
     //datastoreUrl : 'http://localhost:9000',
     // In the 0.10.x API the base path is "otp-rest-servlet/ws"
@@ -71,9 +64,20 @@ otp.config = {
      */
 
     baseLayers: [
+	{
+            name: 'TF Outdoors',
+            tileUrl: 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=f5bd1a180f194af4a509a44564be0839',
+            attribution : 'Thunderforest'
+        },
+        {
+            name: 'MapBox',
+            tileUrl: 'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoibHVrZXBvd2VyIiwiYSI6ImNrNm93ZGt0OTA0eTczbm12OTluaXk4MmIifQ.x33PPnyi5ogxqnDg65Ug1g',
+            attribution : 'MapBox'
+        },
+
         {
             name: 'Stamen Terrain',
-            tileUrl: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.png',
+            tileUrl: 'https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png',
             attribution : 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
         },
         {
@@ -100,7 +104,7 @@ otp.config = {
         {
             name: 'OSM Standard Tiles',
             tileUrl: 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            attribution : 'Map data and tiles © OpenStreetMap contributors'
+            attribution : 'Map data and tiles Â© OpenStreetMap contributors'
         }
     ],
     
@@ -111,8 +115,8 @@ otp.config = {
      * properties, when set, override that behavioir.
      */
      
-    // initLatLng : new L.LatLng(<lat>, <lng>),
-    // initZoom : 14,
+     initLatLng : new L.LatLng(46.57408, 11.66180),
+     initZoom : 13,
     // minZoom : 10,
     // maxZoom : 20,
     
@@ -123,17 +127,17 @@ otp.config = {
      * Site name / description / branding display options
      */
 
-    siteName            : "My OTP Instance",
+    siteName            : "Val Gardena Trip Planner",
     siteDescription     : "An OpenTripPlanner deployment.",
-    logoGraphic         : 'images/otp_logo_darkbg_40px.png',
+    logoGraphic         : 'https://www.valgardena.it/fileadmin/template/img/logo.png',
     // bikeshareName    : "",
     //Enable this if you want to show frontend language chooser
     showLanguageChooser : true,
 
     showLogo            : true,
     showTitle           : true,
-    showModuleSelector  : true,
-    metric              : false,
+    showModuleSelector  : false,
+    metric              : true,
 
 
     /**
@@ -152,7 +156,7 @@ otp.config = {
         {
             id : 'planner',
             className : 'otp.modules.multimodal.MultimodalPlannerModule',
-            defaultBaseLayer : 'OSM Standard Tiles',
+            defaultBaseLayer : 'Stamen Terrain',
             isDefault: true
         },
         {
@@ -174,11 +178,17 @@ otp.config = {
      */
 
     geocoders : [
-        {
+/*        {
             name: 'OTP built-in geocoder',
             className: 'otp.core.GeocoderBuiltin'
             // URL and query parameter do not need to be set for built-in geocoder.
-        }
+        },*/
+	/**{
+	    name: 'OSM Nominatim',
+	    className: 'otp.core.GeocoderOsm',
+            url: 'https://nominatim.openstreetmap.org/search/?format=json&viewbox=11,46,12,47',
+	    addressParam: 'q'
+	}**/
     ],
 
     
@@ -292,47 +302,19 @@ i18n.init(options, function(t) {
 });
 
 otp.config.modes = {
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "TRANSIT,WALK"             : _tr("Transit"),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "BUS,WALK"                 : _tr("Bus Only"),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "TRAM,RAIL,SUBWAY,FUNICULAR,GONDOLA,WALK": _tr("Rail Only"),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "AIRPLANE,WALK"            : _tr("Airplane Only"),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "BUS,TRAM,RAIL,FERRY,SUBWAY,FUNICULAR,GONDOLA,WALK" : _tr("Transit, No Airplane"),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "BICYCLE"                  : _tr('Bicycle Only'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "TRANSIT,BICYCLE"          : _tr("Bicycle &amp; Transit"),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "WALK"                     : _tr('Walk Only'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "CAR"                      : _tr('Car Only'),
-    "CAR_PICKUP"               : _tr('Taxi'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "CAR_PARK,TRANSIT"         : _tr('Park and Ride'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "CAR_PICKUP,TRANSIT"       : _tr('Ride and Kiss (Car Pickup)'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "CAR_DROPOFF,TRANSIT"      : _tr('Kiss and Ride (Car Dropoff)'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "BICYCLE_PARK,TRANSIT"     : _tr('Bike and Ride'),
-    //uncomment only if bike rental exists in a map
-    // TODO: remove this hack, and provide code that allows the mode array to be configured with different transit modes.
-    //       (note that we've been broken for awhile here, since many agencies don't have a 'Train' mode either...this needs attention)
-    // IDEA: maybe we start with a big array (like below), and the pull out modes from this array when turning off various modes...
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    'BICYCLE_RENT'             : _tr('Rented Bicycle'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    'TRANSIT,BICYCLE_RENT'     : _tr('Transit & Rented Bicycle'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "FLEX_ACCESS,WALK,TRANSIT" : _tr('Transit with flex access'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "FLEX_EGRESS,WALK,TRANSIT" : _tr('Transit with flex egress'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "FLEX_ACCESS,FLEX_EGRESS,TRANSIT" : _tr('Transit with flex access and egress'),
-    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel Options widgets)
-    "FLEX_DIRECT"              : _tr('Direct flex search')
-};
+    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel
+    //Options widgets)
+        "TRANSIT,WALK"        : _tr("Transit"), 
+    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel
+    //Options widgets)
+        "BUS,WALK"         : _tr("Bus Only"), 
+    //TRANSLATORS: Travel by: mode of transport (Used in selection in Travel
+    //Options widget)
+        "TRAM,RAIL,SUBWAY,FUNICULAR,GONDOLA,WALK"       : _tr("Rail Only")
+    };
+   
+     
+   
+    function showPosition(position) {
+        window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, "");
+}
