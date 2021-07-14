@@ -182,7 +182,7 @@ otp.config = {
 	{
 	    name: 'BAG geocoder',
 	    className: 'otp.core.GeocoderBag',
-            url: 'https://nominatim.openstreetmap.org/search/?format=json&viewbox=11,46,12,47',
+            url: 'https://nominatim.openstreetmap.org/search/?format=json&viewbox=11,46,12,47&bounded=1',
 	    addressParam: 'q'
 	}
     ],
