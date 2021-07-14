@@ -66,9 +66,9 @@ otp.modules.multimodal.MultimodalPlannerModule =
         var modeSelector = new otp.widgets.tripoptions.ModeSelector(this.optionsWidget);
         this.optionsWidget.addControl("mode", modeSelector, true);
 
-        modeSelector.addModeControl(new otp.widgets.tripoptions.BikeTriangle(this.optionsWidget));
-        modeSelector.addModeControl(new otp.widgets.tripoptions.PreferredRoutes(this.optionsWidget));
-        modeSelector.addModeControl(new otp.widgets.tripoptions.BannedRoutes(this.optionsWidget));
+       // modeSelector.addModeControl(new otp.widgets.tripoptions.BikeTriangle(this.optionsWidget));
+       // modeSelector.addModeControl(new otp.widgets.tripoptions.PreferredRoutes(this.optionsWidget));
+       // modeSelector.addModeControl(new otp.widgets.tripoptions.BannedRoutes(this.optionsWidget));
 
         // hide wheelchair selector only if config explicitly set to false; show by default if setting is not present
         if(otp.config.showWheelchairOption === undefined || otp.config.showWheelchairOption === true) {

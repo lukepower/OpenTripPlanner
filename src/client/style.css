@@ -1135,3 +1135,22 @@ p#splash-text span {
 @media only screen and (min-width: 768px) { body:after { content: "768 to 1023px"; background-color: hsla(270,60%,40%,0.7); } }
 @media only screen and (min-width: 1024px) { body:after { content: "1024 to 1299px"; background-color: hsla(360,60%,40%,0.7); } }
 @media only screen and (min-width: 1300px) { body:after { content: "1300 and up"; background-color: hsla(60,60%,40%,0.7); } }*/
+
+@media only screen and (max-width:850px) {
+
+  div#otp-planner-optionsWidget {
+    position: absolute !important;
+    bottom: 0px;
+    left: 0;
+    border-radius: 0;
+    right: 0;
+    border: 0;
+}
+.otp-widget-header-buttons
+{
+  display: none;
+}
+.ui-resizable-handle {
+  display: none;
+}
+}

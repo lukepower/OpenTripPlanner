@@ -121,7 +121,7 @@ otp.config = {
     // maxZoom : 20,
     
     /* Whether the map should be moved to contain the full itinerary when a result is received. */
-    zoomToFitResults    : false,
+    zoomToFitResults    : true,
 
     /**
      * Site name / description / branding display options
@@ -158,10 +158,6 @@ otp.config = {
             className : 'otp.modules.multimodal.MultimodalPlannerModule',
             defaultBaseLayer : 'Stamen Terrain',
             isDefault: true
-        },
-        {
-            id : 'analyst',
-            className : 'otp.modules.analyst.AnalystModule'
         }
     ],
     
@@ -178,11 +174,11 @@ otp.config = {
      */
 
     geocoders : [
-/*        {
+        {
             name: 'OTP built-in geocoder',
             className: 'otp.core.GeocoderBuiltin'
             // URL and query parameter do not need to be set for built-in geocoder.
-        },*/
+        },
 	/**{
 	    name: 'OSM Nominatim',
 	    className: 'otp.core.GeocoderOsm',
@@ -228,7 +224,7 @@ var options = {
         /*postProcess: 'add_nekaj', //Adds | around every string that is translated*/
         /*shortcutFunction: 'sprintf',*/
         /*postProcess: 'sprintf',*/
-	debug: true,
+	debug: false,
 	getAsync: false, //TODO: make async
 	fallbackOnEmpty: true,
 };
