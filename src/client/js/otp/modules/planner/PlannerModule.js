@@ -581,7 +581,7 @@ otp.modules.planner.PlannerModule =
         // Check if small screen, if so make map smaller
         if ($(window).width() < 1024)
         {
-            $("#map").height($(window).height()-200);
+            $("#map").height($(window).height()-280);
             window.tmp.webapp.map.lmap.invalidateSize();
         } else {
             $("#map").height($(window).height());

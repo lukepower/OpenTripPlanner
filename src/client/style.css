@@ -1148,17 +1148,20 @@ p#splash-text span {
 }
 .otp-widget-header-buttons
 {
-  display: none;
+ /* display: none;*/
 }
 .ui-resizable-handle {
   display: none;
 }
 
 .otp-widget-nonTransparent {
-  bottom: 60px;
+  bottom: 0px;
   left: 0;
   right: 0;
   width: unset;
   top: unset;
+}
+.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se {
+  display: none !important;
 }
 }

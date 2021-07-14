@@ -133,6 +133,12 @@ otp.widgets.Widget = otp.Class({
             this_.unminimize();
         });
         this.isMinimized = true;
+        // Update map size
+        if ($(window).width() < 1024)
+        {
+            $("#map").height($(window).height());
+            window.tmp.webapp.map.lmap.invalidateSize(); 
+        }
     },
 
     unminimize : function(tab) {
