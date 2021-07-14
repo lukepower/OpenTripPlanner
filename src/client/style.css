@@ -1125,6 +1125,7 @@ p#splash-text span {
 .gg-home-alt {
   display: inline-block !important;
   margin-right: 5px !important;
+  height:12px !important;
 }
 
 
