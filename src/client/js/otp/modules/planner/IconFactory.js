@@ -18,7 +18,7 @@ var resourcePath = otp.config.resourcePath || "";
 
 var StartFlagIcon = L.Icon.extend({
     options: {
-        iconUrl: resourcePath + 'images/marker-flag-start-shadowed.png',
+       iconUrl: resourcePath + 'images/marker-flag-start-shadowed.png',
         shadowUrl: null,
         iconSize: new L.Point(48, 49),
         iconAnchor: new L.Point(46, 42),
