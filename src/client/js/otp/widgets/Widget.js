@@ -173,6 +173,12 @@ otp.widgets.Widget = otp.Class({
         if(typeof this.onClose === 'function') this.onClose();
         this.isOpen = false;
         this.hide();
+        // Update map size
+        if ($(window).width() < 1024)
+        {
+            $("#map").height($(window).height());
+            window.tmp.webapp.map.lmap.invalidateSize(); 
+        }
     },
             
     setContent : function(htmlContent) {
