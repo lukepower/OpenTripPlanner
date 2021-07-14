@@ -313,5 +313,5 @@ otp.config.modes = {
    
     function showPosition(position) {
         window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, "");
-        window.tmp.webapp.map.lmap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude),17);
+        window.tmp.webapp.map.lmap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude),15);
 }
