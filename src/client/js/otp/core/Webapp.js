@@ -199,6 +199,11 @@ otp.core.Webapp = otp.Class({
             var nav = $('<nav id="main-menu" role="article">').appendTo('#branding');
             var ul = $('<ul>').appendTo(nav);
 
+            $("<li ><a href='/index.html?setLng=de'>DE</a></li>").appendTo(ul);
+            $("<li><a href='/index.html?setLng=it'>IT</a></li>").appendTo(ul);
+            $("<li><a href='/index.html?setLng=en'>EN</a></li>").appendTo(ul);
+
+/** 
             for(var i=0; i<otp.config.infoWidgets.length; i++) {
 
                 if(otp.config.infoWidgets[i] == undefined) continue;
@@ -224,7 +229,7 @@ otp.core.Webapp = otp.Class({
                     widget.bringToFront();
                 });
 
-            }
+            }**/
         }
 
 

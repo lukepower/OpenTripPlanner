@@ -164,7 +164,7 @@ otp.config = {
 
     //This is shown if showLanguageChooser is true
     infoWidgetLangChooser : {
-        title: '<img src="/images/language_icon.svg" onerror="this.onerror=\'\';this.src=\'/images/language_icon.png\'" width="30px" height="30px"/>', 
+        title: 'Lang', 
         languages: true
     },
     
