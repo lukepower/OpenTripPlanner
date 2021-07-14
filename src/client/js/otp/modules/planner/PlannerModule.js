@@ -577,7 +577,6 @@ otp.modules.planner.PlannerModule =
             }
             //FIXME: CAR is missing
         }
-        if (otp.config.zoomToFitResults) this.webapp.map.lmap.fitBounds(itin.getBoundsArray());
         // Check if small screen, if so make map smaller
         if ($(window).width() < 1024)
         {
@@ -587,6 +586,8 @@ otp.modules.planner.PlannerModule =
             $("#map").height($(window).height());
             window.tmp.webapp.map.lmap.invalidateSize(); 
         }
+        if (otp.config.zoomToFitResults) this.webapp.map.lmap.fitBounds(itin.getBoundsArray());
+        
         
     },
 
