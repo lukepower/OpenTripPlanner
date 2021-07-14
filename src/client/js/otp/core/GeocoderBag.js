@@ -54,11 +54,11 @@ otp.core.GeocoderBag = otp.Class({
         $.getJSON(this.url, params)
             .done( function (data) {
                 // Success: transform the data to a JSON array of objects containing lat, lng, and description fields as the client expects
-                data = data.results.map(function (r) {
+                data = data.map(function (r) {
                     return {
-                        "description": r.formatted_address,
-                        "lat": r.geometry.location.lat,
-                        "lng": r.geometry.location.lng,
+                        "description": r.display_name,
+                         "lat": r.lat,
+                         "lng": r.lon,
                     };
                 });
                 callback.call(this, data);
