@@ -168,7 +168,7 @@ otp.modules.planner.PlannerModule =
         this.webapp.indexApi.loadRoutes(this, function() {
             this.routesLoaded();
         });
-        
+
         window.tmp = this;
         if (navigator.geolocation) {
             // Get position
@@ -578,6 +578,16 @@ otp.modules.planner.PlannerModule =
             //FIXME: CAR is missing
         }
         if (otp.config.zoomToFitResults) this.webapp.map.lmap.fitBounds(itin.getBoundsArray());
+        // Check if small screen, if so make map smaller
+        if ($(window).width() < 1024)
+        {
+            $("#map").height($(window).height()-200);
+            window.tmp.webapp.map.lmap.invalidateSize();
+        } else {
+            $("#map").height($(window).height());
+            window.tmp.webapp.map.lmap.invalidateSize(); 
+        }
+        
     },
 
     highlightLeg : function(leg) {

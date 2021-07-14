@@ -1153,4 +1153,12 @@ p#splash-text span {
 .ui-resizable-handle {
   display: none;
 }
+
+.otp-widget-nonTransparent {
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  width: unset;
+  top: unset;
+}
 }
