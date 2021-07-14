@@ -286,8 +286,8 @@ msgstr "Routenvorschläge"
 #. widget title
 #: src/client/js/otp/modules/planner/ItinerariesWidget.js:98
 #, python-format
-msgid "%d Itinerary Returned"
-msgid_plural "%d Itineraries Returned"
+msgid "%d Route gefunden"
+msgid_plural "%d Routen gefunden"
 msgstr[0] ""
 msgstr[1] ""
 
