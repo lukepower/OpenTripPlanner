@@ -74,33 +74,6 @@ otp.config = {
             tileUrl: 'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoibHVrZXBvd2VyIiwiYSI6ImNrNm93ZGt0OTA0eTczbm12OTluaXk4MmIifQ.x33PPnyi5ogxqnDg65Ug1g',
             attribution : 'MapBox'
         },
-
-        {
-            name: 'Stamen Terrain',
-            tileUrl: 'https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png',
-            attribution : 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-        },
-        {
-            name: 'Carto Positron',
-            tileUrl: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-            attribution : 'Map tiles by Carto/MapZen. Map data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-        },
-        {
-            name: 'Transport Tiles',
-            tileUrl: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
-            subdomains : ['a','b','c'],
-            attribution: 'Data from <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors. Tiles from <a href="http://www.thunderforest.com/transport/">Andy Allan</a>'
-        },
-        {
-            name: 'Stamen Toner Lite',
-            tileUrl: 'http://tile.stamen.com/toner-lite/{z}/{x}/{y}.png',
-            attribution : 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-        },
-        {
-            name: 'Carto Dark Matter',
-            tileUrl: 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-            attribution : 'Map tiles by Carto/MapZen. Map data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-        },
         {
             name: 'OSM Standard Tiles',
             tileUrl: 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -312,6 +285,6 @@ otp.config.modes = {
      
    
     function showPosition(position) {
-        window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, "");
+        window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, _tr("Current Position"));
         window.tmp.webapp.map.lmap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude),15);
 }
