@@ -168,8 +168,10 @@ otp.modules.planner.PlannerModule =
         this.webapp.indexApi.loadRoutes(this, function() {
             this.routesLoaded();
         });
+        
         window.tmp = this;
         if (navigator.geolocation) {
+            // Get position
             navigator.geolocation.getCurrentPosition(showPosition);
         }
         this.activated = true;
