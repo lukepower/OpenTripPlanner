@@ -131,7 +131,7 @@ otp.core.Webapp = otp.Class({
         if(otp.config.siteName !== undefined) {
             document.title = otp.config.siteName;
             if(otp.config.showTitle) {
-                $("<div id='site-title'><a href='"+otp.config.siteUrl+"'>"+otp.config.siteName+"</a></div>").appendTo('#branding');
+                $("<div id='site-title'><a href='"+otp.config.siteUrl+"'><i class=\"gg-home-alt\"></i>"+otp.config.siteName+"</a></div>").appendTo('#branding');
             }
         }
 

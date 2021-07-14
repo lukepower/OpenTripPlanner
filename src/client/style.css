@@ -1121,6 +1121,13 @@ p#splash-text span {
 
 }
 
+
+.gg-home-alt {
+  display: inline-block !important;
+  margin-right: 5px !important;
+}
+
+
 @media only screen and (min-width: 1300px) {
 }
 
