@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="js/otp/widgets/transit/widgets-transit-style.css?v=1" />
 <link rel="stylesheet" href="style.css?v=1" />
 <link href='https://css.gg/home-alt.css' rel='stylesheet'>
+<link rel="stylesheet" href="splide-default.min.css">
 
 <!--Loads jquery, underscore, json2, momentjs and raphael makes 7 requests less-->
 <script src="https://cdn.jsdelivr.net/g/jquery@1.9.1,underscorejs@1.4.2,json2@0.1,momentjs@1.7.2,raphael@2.1.2"></script>
@@ -54,6 +55,8 @@ Analyst's webinterface was broken by that
 <script src="./js/lib/jquery-ui/i18n/jquery.ui.datepicker-pl.js"></script>
 <script src="./js/lib/jquery-ui/i18n/jquery.ui.datepicker-es.js"></script>
 <script src="./js/lib/jquery-ui/i18n/jquery.ui.datepicker-pt.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 
 <!-- backbone -->
 <script src="js/lib/backbone.js"></script>
@@ -268,7 +271,30 @@ $(document).ready(function() {
 </header><!-- #branding -->
 
 <div id="map"></div>
+
 <div id="otp-minimize-tray"></div>
+
+<div id="containsplide">
+	<div class="splide-title">Our Highlights</div>
+	<div class="splide">
+		<div class="splide__track">
+			<ul class="splide__list">
+				<li class="splide__slide" onclick="setDestCoord(46.5,11.5,'Haha');"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacom4o</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacom3o</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San2 Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San G5iacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 <div id="otp-spinner"><img src="images/spinner.gif"></div>
 
@@ -284,6 +310,12 @@ $(document).ready(function() {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+</script>
+<script>
+new Splide( '.splide', {
+	perPage: 0,
+	rewind : true,
+} ).mount();
 </script>
 
 </body>

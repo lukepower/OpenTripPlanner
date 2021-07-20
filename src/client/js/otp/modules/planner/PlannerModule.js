@@ -175,6 +175,16 @@ otp.modules.planner.PlannerModule =
             navigator.geolocation.getCurrentPosition(showPosition);
         }
         this.activated = true;
+        // Check parameter
+        let searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.has('toLat') && searchParams.has("toLon") && searchParams.has("toName"))
+        {
+            var lat = searchParams.get('toLat');
+            var lon = searchParams.get('toLon');
+            var name = searchParams.get("toName");
+            console.log(name);
+            window.tmp.setEndPoint(new L.LatLng(lat,lon),1, name);
+        }
 
         // set up primary widgets (TODO: move to bike planner module)
         /*this.tipWidget = this.createWidget("otp-tipWidget", "", this);

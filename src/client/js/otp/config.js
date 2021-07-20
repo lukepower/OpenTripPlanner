@@ -41,7 +41,7 @@ otp.config = {
     /**
      * The OTP web service locations
      */
-    hostname : "https://tripplanner.valgardena.it",
+    hostname : "https://tpdata.valgardena.it",
     //municoderHostname : "http://localhost:8080",
     //datastoreUrl : 'http://localhost:9000',
     // In the 0.10.x API the base path is "otp-rest-servlet/ws"
@@ -284,7 +284,12 @@ otp.config.modes = {
    
      
    
-    function showPosition(position) {
-        window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, _tr("Current Position"));
-        window.tmp.webapp.map.lmap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude),15);
+function showPosition(position) {
+    window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, _tr("Current Position"));
+    window.tmp.webapp.map.lmap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude),15);
+}
+
+function setDestCoord(lat,lon,name)
+{
+    window.tmp.setEndPoint(new L.LatLng(lat,lon),1, name);
 }
