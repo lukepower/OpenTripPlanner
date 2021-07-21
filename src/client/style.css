@@ -690,7 +690,7 @@ body {
 
 .otp-defaultTripWidget {
   width: auto;
-  bottom: 10px;
+  bottom: 175px;
   left: 10px;
 }
 
@@ -1153,28 +1153,39 @@ p#splash-text span {
     border-radius: 0;
     right: 0;
     border: 0;
-}
-.otp-widget-header-buttons
-{
- /* display: none;*/
-}
-.ui-resizable-handle {
-  display: none;
-}
+  }
+  .otp-widget-header-buttons
+  {
+  /* display: none;*/
+  }
+  .ui-resizable-handle {
+    display: none;
+  }
 
-.otp-widget-nonTransparent {
-  bottom: 0px;
-  left: 0;
-  right: 0;
-  width: unset;
-  top: unset;
-}
-.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se {
-  display: none !important;
-}
-div#otp-minimize-tray {
-  display: none !important;
-}
+  .otp-widget-nonTransparent {
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    width: unset;
+    top: unset;
+  }
+  .ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se {
+    display: none !important;
+  }
+  div#otp-minimize-tray {
+    display: none !important;
+  }
+  #containsplide {
+
+    bottom: 206px !important;
+  }
+  .splide__slide img
+  {
+    height: 80px;
+  }
+  .splide__slide a {
+    font-size: 1em !important;
+  };
 }
 
 .splide
@@ -1186,7 +1197,7 @@ div#otp-minimize-tray {
   position: absolute;
   bottom: 0;
   right: 0;
-  left: 200px;
+  left: 0;
   z-index: 998;
 }
 .splide__slide img {

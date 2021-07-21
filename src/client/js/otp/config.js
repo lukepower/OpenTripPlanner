@@ -293,3 +293,25 @@ function setDestCoord(lat,lon,name)
 {
     window.tmp.setEndPoint(new L.LatLng(lat,lon),1, name);
 }
+
+function getFavorites()
+{
+    var this_ = this;
+    var url = "/rest/query.php";
+
+    var currentRequest = $.ajax(url, {
+            traditional: true,
+            type: "GET",
+
+            success: function(data) {
+                $('#otp-spinner').hide();
+                var myResult = JSON.parse(data);
+                $.each(myResult, function(){
+                    window.splide.add('<li class="splide__slide" onclick="setDestCoord(' + this.latitude + "," + this.longitude + ",'" + this.name + '\');"><img src="'+this.image_url+'" height="150" /><a href="#">' + this.name + '</a></li>');
+                    console.log(this)
+                });
+               
+               
+            }
+        });
+}

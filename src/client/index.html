@@ -279,18 +279,7 @@ $(document).ready(function() {
 	<div class="splide">
 		<div class="splide__track">
 			<ul class="splide__list">
-				<li class="splide__slide" onclick="setDestCoord(46.5,11.5,'Haha');"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacom4o</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacom3o</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San2 Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San G5iacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
-				<li class="splide__slide"><img src="https://via.placeholder.com/150" /><a href="#">Chiesetta San Giacomo</a></li>
+				
 			</ul>
 		</div>
 	</div>
@@ -312,10 +301,11 @@ $(document).ready(function() {
 
 </script>
 <script>
-new Splide( '.splide', {
+window.splide = new Splide( '.splide', {
 	perPage: 0,
-	rewind : true,
+
 } ).mount();
+getFavorites();
 </script>
 
 </body>
