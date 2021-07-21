@@ -287,6 +287,7 @@ otp.config.modes = {
 function showPosition(position) {
     window.tmp.setStartPoint(new L.LatLng(position.coords.latitude, position.coords.longitude),1, _tr("Current Position"));
     window.tmp.webapp.map.lmap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude),15);
+    getFavorites();
 }
 
 function setDestCoord(lat,lon,name)
@@ -298,10 +299,15 @@ function getFavorites()
 {
     var this_ = this;
     var url = "/rest/query.php";
+    var pos = window.tmp.startLatLng;
+    var options = {  "lat": pos.lat,       "lon": pos.lng};
 
     var currentRequest = $.ajax(url, {
-            traditional: true,
-            type: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // query parameters go under "data" as an Object
+        data: options,
 
             success: function(data) {
                 $('#otp-spinner').hide();
