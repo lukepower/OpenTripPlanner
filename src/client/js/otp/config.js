@@ -295,12 +295,38 @@ function setDestCoord(lat,lon,name)
     window.tmp.setEndPoint(new L.LatLng(lat,lon),1, name);
 }
 
+function goToFavorite(lat,lon,name,id)
+{
+    // Send ajax call for click
+    var this_ = this;
+    var url = "/rest/clickcounter.php";
+    var currentRequest = $.ajax(url, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // query parameters go under "data" as an Object
+        data: {id: id},
+
+            success: function(data) {
+               console.log("Click counted");
+               
+            }
+        });
+
+
+    setDestCoord(lat,lon, name);
+}
+
 function getFavorites()
 {
     var this_ = this;
     var url = "/rest/query.php";
     var pos = window.tmp.startLatLng;
-    var options = {  "lat": pos.lat,       "lon": pos.lng};
+    var options = {  
+        "lat": pos.lat,       
+        "lon": pos.lng,
+        "lang": otp.config.locale.config.locale_short
+    };
 
     var currentRequest = $.ajax(url, {
         headers: {
@@ -313,7 +339,7 @@ function getFavorites()
                 $('#otp-spinner').hide();
                 var myResult = JSON.parse(data);
                 $.each(myResult, function(){
-                    window.splide.add('<li class="splide__slide" onclick="setDestCoord(' + this.latitude + "," + this.longitude + ",'" + this.name + '\');"><img src="'+this.image_url+'" height="150" /><a href="#">' + this.name + '</a></li>');
+                    window.splide.add('<li class="splide__slide" onclick="goToFavorite(' + this.latitude + "," + this.longitude + ",'" + this.name + '\',' + this.id + ');"><img src="'+this.image_url+'" height="150" /><a href="#">' + this.name + '</a></li>');
                     console.log(this)
                 });
                
