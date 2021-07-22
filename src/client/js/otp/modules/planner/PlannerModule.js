@@ -183,7 +183,10 @@ otp.modules.planner.PlannerModule =
             var lon = searchParams.get('toLon');
             var name = searchParams.get("toName");
             console.log(name);
-            window.tmp.setEndPoint(new L.LatLng(lat,lon),1, name);
+           // setDestCoord(lat,lon, name);
+           setTimeout(function() { window.tmp.setEndPoint(new L.LatLng(lat,lon),1, name); }, 500);
+
+            
         }
 
         // set up primary widgets (TODO: move to bike planner module)
